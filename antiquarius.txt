@@ -1,0 +1,20 @@
+nomes livraria:
+
+- inspirados em nomes de autores
+- sebo
+- livraria retrô/vintage
+- book
+- vintagebook's
+- Perpétuo Livraria
+- Antiquarius 
+
+cores:
+- verde
+
+páginas:
+- index: 
+	- cabeçalho, rodapé
+	- catalogo, produto
+- login
+- carrinho
+
