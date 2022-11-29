@@ -1,0 +1,41 @@
+import blogFetch from "../axios/codigo";
+
+import { useState, useEffect } from "react";
+
+import { useParams } from "react-router-dom";
+
+const Titulo = () => {
+  const { id } = useParams();
+  const [titulo, setTitulo] = useState([]);
+
+  const getTitulo = async () => {
+    try {
+      const response = await blogFetch.get(`/Livro/${id}`);
+
+      const data = response.data;
+
+      setTitulo(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getTitulo();
+  }, []);
+
+  return (
+    <div>
+      {!titulo.nome ? (
+        <p>Carregando...</p>
+      ) : (
+        <div>
+          <h2>{titulo.nome}</h2>
+          <p>{titulo.editora}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Titulo;
