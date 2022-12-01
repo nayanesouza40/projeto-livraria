@@ -1,7 +1,5 @@
 import blogFetch from "../scripts/axios";
-
 import { useState, useEffect } from "react";
-
 import { useParams } from "react-router-dom";
 
 const Produto = () => {
@@ -31,7 +29,13 @@ const Produto = () => {
       ) : (
         <div>
           <h2>{post.nome}</h2>
-          <p>{post.genero}</p>
+          <h3>{post.autor_a}</h3>
+          <p>País: {post.pais}</p>
+          <p>Lançamento: {post.lancamento}</p>
+          <p>Editora: {post.editora}</p>
+          <p>Gênero: {post.genero}</p>
+          <p> Total de páginas: {post.total_de_paginas}</p>
+          <h4>{post.valor}</h4>
         </div>
       )}
     </div>

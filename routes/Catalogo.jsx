@@ -1,9 +1,6 @@
 import blogFetch from "../scripts/axios";
-
 import { useState, useEffect } from "react";
-
 import { Link } from "react-router-dom";
-
 
 const Catalogo = () => {
   const [posts, setPosts] = useState([]);
@@ -32,11 +29,11 @@ const Catalogo = () => {
       ) : (
         posts.map((post) => (
           <div key={post.id}>
-            <h2>{post.nome}</h2>
-            <p>{post.genero}</p>
             <Link to={`/produto/${post.id}`}>
-              Ler mais
+              <h2>{post.nome}</h2>
             </Link>
+            <h3>{post.autor_a}</h3>
+            <p>{post.valor}</p>                    
           </div>
         ))
       )}

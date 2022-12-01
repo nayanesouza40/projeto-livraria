@@ -1,14 +1,18 @@
 import blogFetch from "../scripts/axios";
-
 import { useState, useEffect } from "react";
-
 import { useParams, useNavigate } from "react-router-dom";
 
 const EditarProduto = () => {
   const navigate = useNavigate();
 
-  const [nome, setTitle] = useState();
-  const [genero, setBody] = useState();
+  const [nome, setNome] = useState();
+  const [autor_a, setAutor] = useState();
+  const [pais, setPais] = useState();
+  const [lancamento, setLancamento] = useState();
+  const [editora, setEditora] = useState();
+  const [genero, setGenero] = useState();
+  const [total_de_paginas, setPaginas] = useState();
+  const [valor, setValor] = useState();
 
   const { id } = useParams();
 
@@ -20,8 +24,14 @@ const EditarProduto = () => {
 
       console.log(data);
 
-      setTitle(data.nome);
-      setBody(data.genero);
+      setNome(data.nome);
+      setAutor(data.autor_a);
+      setPais(data.pais);
+      setLancamento(data.lancamento);
+      setEditora(data.editora);
+      setPaginas(data.total_de_paginas);
+      setValor(data.valor);
+      setGenero(data.genero);
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +40,8 @@ const EditarProduto = () => {
   const editarProduto = async (e) => {
     e.preventDefault();
 
-    const post = { nome, genero };
+    const post = { nome, autor_a, pais, lancamento, editora, genero, total_de_paginas, valor };
+
 
     await blogFetch.put(`/Livro/${id}`, post);
 
@@ -46,27 +57,101 @@ const EditarProduto = () => {
     <div>
       <h2>Editando: {nome}</h2>
       <form onSubmit={(e) => editarProduto(e)}>
+                
         <div>
           <label htmlFor="nome">Título:</label>
           <input
             type="text"
             name="nome"
             id="nome"
-            placeholder="Digite o título"
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setNome(e.target.value)}
             value={nome || ""}
           />
         </div>
+
         <div>
-          <label htmlFor="genero">Título:</label>
-          <textarea
+          <label htmlFor="autor_a">Autor:</label>
+          <input
+            type="text"
+            name="autor_a"
+            id="autor_a"
+            onChange={(e) => setAutor(e.target.value)}
+            value={autor_a || ""}
+          />
+        </div>
+       
+        <div>
+          <label htmlFor="pais">País:</label>
+          <input
+            type="text"
+            name="pais"
+            id="pais"
+            placeholder="Digite o país"
+            onChange={(e) => setPais(e.target.value)}
+            value={pais || ""}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="lancamento">lançamento:</label>
+          <input
+            type="text"
+            name="lancamento"
+            id="lancamento"
+            placeholder="Digite o mês e ano de lançamento"
+            onChange={(e) => setLancamento(e.target.value)}
+            value={lancamento || ""}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="editora">Editora:</label>
+          <input
+            type="text"
+            name="editora"
+            id="editora"
+            placeholder="Digite a editora"
+            onChange={(e) => setEditora(e.target.value)}
+            value={editora || ""}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="genero">Gênero:</label>
+          <input
+            type="text"
             name="genero"
             id="genero"
-            placeholder="Digite o conteúdo..."
-            onChange={(e) => setBody(e.target.value)}
+            placeholder="Digite o gênero"
+            onChange={(e) => setGenero(e.target.value)}
             value={genero || ""}
-          ></textarea>
+          />
         </div>
+
+        <div>
+          <label htmlFor="total_de_paginas">Total de páginas:</label>
+          <input
+            type="number"
+            name="total_de_paginas"
+            id="total_de_paginas"
+            placeholder="Páginas"
+            onChange={(e) => setPaginas(e.target.value)}
+            value={total_de_paginas || ""}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="valor">Valor:</label>
+          <input
+            type="text"
+            name="valor"
+            id="valor"
+            placeholder="Digite o valor"
+            onChange={(e) => setValor(e.target.value)}
+            value={valor || ""}
+          />
+        </div>
+
         <input type="submit" value="Editar"  />
       </form>
     </div>
