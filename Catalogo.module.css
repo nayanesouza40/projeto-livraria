@@ -23,13 +23,13 @@ a:link, a:visited, a:hover, a:active {
 }
 .imgItem {
     width: auto;
-    height: 200px;
+    height: 300px;
     background-color: yellow;
 }
 .item {
     margin: 10px;
     padding: 10px;
-    width: 200px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -44,4 +44,13 @@ a:link, a:visited, a:hover, a:active {
 }
 .valor {
     text-align: center;
+}
+.editar, .adicionar {
+    margin-top: 10px;
+    padding: 10px;
+    height: fit-content;
+    color: white;
+    background-color: rgb(166, 105, 91);
+    border: 0;
+    cursor: pointer;
 }

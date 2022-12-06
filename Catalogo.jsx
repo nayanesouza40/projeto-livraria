@@ -38,9 +38,11 @@ const Catalogo = () => {
             </Link>
               <p className={styles.autor}>{post.autor_a}</p>
               <p className={styles.valor}>{post.valor}</p>
+              <button className={styles.editar}>Editar</button>
           </div>
         ))
       )}
+      <button className={styles.adicionar}>Adicionar</button>
       </div>
     </div>
   );

@@ -23,4 +23,16 @@
 }
 hr {
     margin: 10px 0;
+    height: 2px;
+    border-width: 0;
+    color: rgb(217, 151, 113);
+    background-color: rgb(217, 151, 113);
+}
+.editar, .adicionar {
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    color: white;
+    background-color: rgb(166, 105, 91);
+    border: 0;
+    cursor: pointer;
 }

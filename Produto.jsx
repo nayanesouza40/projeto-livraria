@@ -41,6 +41,7 @@ const Produto = () => {
           <p> Total de páginas: {post.total_de_paginas}</p>
           <hr />
           <h4>{post.valor}</h4>
+          <button className={styles.editar}>Editar</button><button className={styles.adicionar}>Adicionar</button>
         </div>
       )}
     </div>
