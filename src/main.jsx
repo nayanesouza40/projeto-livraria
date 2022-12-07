@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/produto/editar/:id",
         element: <EditarProduto />,
-      },
+      }
     ],
   },
 ]);

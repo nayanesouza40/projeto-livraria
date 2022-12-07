@@ -14,6 +14,7 @@ const EditarProduto = () => {
   const [genero, setGenero] = useState();
   const [total_de_paginas, setPaginas] = useState();
   const [valor, setValor] = useState();
+  const [capa, setCapa] = useState();
 
   const { id } = useParams();
 
@@ -41,7 +42,7 @@ const EditarProduto = () => {
   const editarProduto = async (e) => {
     e.preventDefault();
 
-    const post = { nome, autor_a, pais, lancamento, editora, genero, total_de_paginas, valor };
+    const post = { nome, autor_a, pais, lancamento, editora, genero, total_de_paginas, valor, capa };
 
 
     await blogFetch.put(`/Livro/${id}`, post);
@@ -106,6 +107,18 @@ const EditarProduto = () => {
             value={pais || ""}
           />
         </div>
+
+        <div>
+          <label htmlFor="valor">Capa:</label>
+          <input
+            type="file"
+            name="capa"
+            id="capa"
+            
+            onChange={(e) => setCapa(e.target.value)}
+            value={capa || ""}
+          />
+        </div>
         </section>
         <section className={style.col2}>
         <div>
@@ -157,6 +170,8 @@ const EditarProduto = () => {
             value={valor || ""}
           />
         </div>
+
+
         </section>
         </div>
         <input type="submit" value="Salvar"  className={style.botaoCreatePost}/>

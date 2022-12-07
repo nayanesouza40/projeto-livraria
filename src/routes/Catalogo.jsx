@@ -2,7 +2,6 @@ import blogFetch from "../model/axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Catalogo.module.css"
-import livro1 from "../../public/O-Jardim-Secreto.jpg"
 
 const Catalogo = () => {
   const [posts, setPosts] = useState([]);
@@ -33,7 +32,7 @@ const Catalogo = () => {
         posts.map((post) => (
           <div className={styles.item} key={post.id}>
             <Link to={`/produto/${post.id}`}>
-              <img src={livro1} alt="" className={styles.imgItem}/>
+              <img src={`../../public/${post.capa}`} alt={post.nome} className={styles.imgItem}/>
               <h2 className={styles.tituloH2}>{post.nome}</h2>
             </Link>
               <p className={styles.autor}>{post.autor_a}</p>

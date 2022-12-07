@@ -1,8 +1,8 @@
 import blogFetch from "../model/axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from './Produto.module.css'
-import livro1 from '../../public/O-Jardim-Secreto.jpg'
 import {Link} from "react-router-dom"
 
 const Produto = () => {
@@ -12,14 +12,26 @@ const Produto = () => {
   const getPost = async () => {
     try {
       const response = await blogFetch.get(`/Livro/${id}`);
-
       const data = response.data;
-
       setPost(data);
     } catch (error) {
       console.log(error);
     }
   };
+
+
+  const deletePost = async () => {
+   
+    try {
+      const response = await blogFetch.delete(`/Livro/${id}`);
+          navigate("/");
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
 
   useEffect(() => {
     getPost();
@@ -31,7 +43,7 @@ const Produto = () => {
         <p>Carregando...</p>
       ) : (
         <div className={styles.livro}>
-          <img src={livro1} alt="" className={styles.img}/>
+          <img src={`../../public/${post.capa}`} alt={post.nome} className={styles.img}/>
           <h2 className={styles.nome}>{post.nome}</h2>
           <h3 className={styles.autor}>{post.autor_a}</h3>
           <hr />
@@ -45,9 +57,8 @@ const Produto = () => {
           <Link to={`/produto/editar/${post.id}`}>  
             <button className={styles.editar}>Editar</button>
           </Link>  
-          <Link to={`/excluir/${post.id}`}>  
-            <button className={styles.adicionar}>Excluir</button>
-          </Link>
+         
+         <input type="submit" onSubmit={deletePost()} className={styles.adicionar} value="Excluir"/>
         </div>
       )}
     </div>
