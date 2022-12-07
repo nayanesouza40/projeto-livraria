@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(119, 166, 161);
+}
+.tituloH1 {
+    text-align: center;
+}
+.tituloH2 {
+    text-align: center;
+}
+a:link, a:visited, a:hover, a:active {
+    color: black;
+    text-decoration: none;
+}
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.imgItem {
+    width: auto;
+    height: 300px;
+    background-color: yellow;
+}
+.item {
+    margin: 10px;
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    background-color: rgb(217, 187, 132);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 10px 0 0 10px;
+    border: 5px double rgb(217, 151, 113);
+}
+.autor {
+    text-align: center;
+}
+.valor {
+    text-align: center;
+}
+.editar, .adicionar {
+    margin-top: 10px;
+    padding: 10px;
+    height: fit-content;
+    color: white;
+    background-color: rgb(166, 105, 91);
+    border: 0;
+    cursor: pointer;
+}

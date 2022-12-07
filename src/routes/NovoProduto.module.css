@@ -1,0 +1,70 @@
+@media screen and (min-width:768px){
+
+*{
+    margin:0;
+    padding:0;
+}
+
+.h2createPost {
+    text-align: center;
+}
+
+.createPost {
+    margin: auto;
+    margin-top: 50px;
+    width:100%;
+    max-width: 800px;
+    padding: 50px;
+    background-color: rgb(217, 187, 132);
+    box-shadow: 0 0 5px 0 black;
+    border-radius: 10px;
+    border: 5px double rgb(217, 151, 113);
+    
+}
+
+.createPost div {
+    margin:10px 0;
+}
+
+.createPost div label {
+    display: flex;
+}
+
+.cols {
+    display:flex;
+    justify-content: space-between;
+}
+
+.col1 {  
+   width:48%;
+}
+
+.col2 {
+    width:48%;
+}
+
+.createPost .cols input, .cols select {
+    padding: 8px 10px;
+    width: 100%;
+    margin-top:5px;
+}
+
+.botaoCreatePost {
+
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    color: white;
+    background-color: rgb(166, 105, 91);
+    border: 0;
+    cursor: pointer;
+}
+
+.botaoResetPost {
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    color: white;
+    background-color: rgb(166, 105, 91);
+    border: 0;
+    cursor: pointer;
+}
+}
