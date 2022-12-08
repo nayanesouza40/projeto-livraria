@@ -1,7 +1,6 @@
 import blogFetch from "../model/axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import style from "./NovoProduto.module.css"
 
 const NovoProduto = () => {
   const navigate = useNavigate();
@@ -21,18 +20,15 @@ const NovoProduto = () => {
     const post = { nome, autor_a, pais, lancamento, editora, genero, total_de_paginas, valor };
 
     await blogFetch.post("/Livro", post);
+
     navigate("/");
-    
   };
 
   return (
     <div>
-
-      <h1 className={style.h2createPost}>Cadastro de novos livros</h1>
-      <form onSubmit={(e) => createPost(e)} className={style.createPost}>
-       
-       <div className={style.cols}>
-        <section className={style.col1}>
+      <h2>Inserir novo Livro:</h2>
+      <form onSubmit={(e) => createPost(e)}>
+        
         <div>
           <label htmlFor="nome">Título:</label>
           <input
@@ -54,19 +50,7 @@ const NovoProduto = () => {
             onChange={(e) => setAutor(e.target.value)}
           />
         </div>
-
-        <div>
-          <label htmlFor="genero">Gênero:</label>
-          <input
-            type="text"
-            name="genero"
-            id="genero"
-            placeholder="Escolha o gênero"
-            onChange={(e) => setGenero(e.target.value)}
-          />
-        </div>
        
-      
         <div>
           <label htmlFor="pais">País:</label>
           <input
@@ -77,19 +61,18 @@ const NovoProduto = () => {
             onChange={(e) => setPais(e.target.value)}
           />
         </div>
-        </section>
-        <section className={style.col2}>
+
         <div>
-          <label htmlFor="lancamento">Lançamento:</label>
+          <label htmlFor="lancamento">lançamento:</label>
           <input
-            type="date"
+            type="text"
             name="lancamento"
             id="lancamento"
             placeholder="Digite o mês e ano de lançamento"
             onChange={(e) => setLancamento(e.target.value)}
           />
         </div>
-                
+
         <div>
           <label htmlFor="editora">Editora:</label>
           <input
@@ -98,6 +81,17 @@ const NovoProduto = () => {
             id="editora"
             placeholder="Digite a editora"
             onChange={(e) => setEditora(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="genero">Gênero:</label>
+          <input
+            type="text"
+            name="genero"
+            id="genero"
+            placeholder="Digite o gênero"
+            onChange={(e) => setGenero(e.target.value)}
           />
         </div>
 
@@ -114,7 +108,6 @@ const NovoProduto = () => {
 
         <div>
           <label htmlFor="valor">Valor:</label>
-          
           <input
             type="text"
             name="valor"
@@ -123,10 +116,8 @@ const NovoProduto = () => {
             onChange={(e) => setValor(e.target.value)}
           />
         </div>
-        </section>
-        </div>
-        <input type="submit" value="Cadastrar" className={style.botaoCreatePost} />
-        <input type="reset" value="Limpar" className={style.botaoResetPost} />
+
+        <input type="submit" value="Enviar" />
       </form>
     </div>
   );

@@ -1,7 +1,6 @@
 import blogFetch from "../model/axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import style from "./EditarProduto.module.css"
 
 const EditarProduto = () => {
   const navigate = useNavigate();
@@ -14,7 +13,6 @@ const EditarProduto = () => {
   const [genero, setGenero] = useState();
   const [total_de_paginas, setPaginas] = useState();
   const [valor, setValor] = useState();
-  const [capa, setCapa] = useState();
 
   const { id } = useParams();
 
@@ -42,7 +40,7 @@ const EditarProduto = () => {
   const editarProduto = async (e) => {
     e.preventDefault();
 
-    const post = { nome, autor_a, pais, lancamento, editora, genero, total_de_paginas, valor, capa };
+    const post = { nome, autor_a, pais, lancamento, editora, genero, total_de_paginas, valor };
 
 
     await blogFetch.put(`/Livro/${id}`, post);
@@ -57,11 +55,9 @@ const EditarProduto = () => {
 
   return (
     <div>
-      <h1 className={style.h2createPost}>Editando: {nome}</h1>
-      <form onSubmit={(e) => editarProduto(e)} className={style.createPost}>
+      <h2>Editando: {nome}</h2>
+      <form onSubmit={(e) => editarProduto(e)}>
                 
-      <div className={style.cols}>
-        <section className={style.col1}>        
         <div>
           <label htmlFor="nome">Título:</label>
           <input
@@ -83,18 +79,6 @@ const EditarProduto = () => {
             value={autor_a || ""}
           />
         </div>
-
-        <div>
-          <label htmlFor="genero">Gênero:</label>
-          <input
-            type="text"
-            name="genero"
-            id="genero"
-            placeholder="Digite o gênero"
-            onChange={(e) => setGenero(e.target.value)}
-            value={genero || ""}
-          />
-        </div>
        
         <div>
           <label htmlFor="pais">País:</label>
@@ -109,20 +93,7 @@ const EditarProduto = () => {
         </div>
 
         <div>
-          <label htmlFor="valor">Capa:</label>
-          <input
-            type="file"
-            name="capa"
-            id="capa"
-            
-            onChange={(e) => setCapa(e.target.value)}
-            value={capa || ""}
-          />
-        </div>
-        </section>
-        <section className={style.col2}>
-        <div>
-          <label htmlFor="lancamento">Lançamento:</label>
+          <label htmlFor="lancamento">lançamento:</label>
           <input
             type="text"
             name="lancamento"
@@ -145,7 +116,17 @@ const EditarProduto = () => {
           />
         </div>
 
-       
+        <div>
+          <label htmlFor="genero">Gênero:</label>
+          <input
+            type="text"
+            name="genero"
+            id="genero"
+            placeholder="Digite o gênero"
+            onChange={(e) => setGenero(e.target.value)}
+            value={genero || ""}
+          />
+        </div>
 
         <div>
           <label htmlFor="total_de_paginas">Total de páginas:</label>
@@ -171,10 +152,7 @@ const EditarProduto = () => {
           />
         </div>
 
-
-        </section>
-        </div>
-        <input type="submit" value="Salvar"  className={style.botaoCreatePost}/>
+        <input type="submit" value="Editar"  />
       </form>
     </div>
   );

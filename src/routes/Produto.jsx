@@ -1,9 +1,6 @@
 import blogFetch from "../model/axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import styles from './Produto.module.css'
-import {Link} from "react-router-dom"
 
 const Produto = () => {
   const { id } = useParams();
@@ -12,26 +9,14 @@ const Produto = () => {
   const getPost = async () => {
     try {
       const response = await blogFetch.get(`/Livro/${id}`);
+
       const data = response.data;
+
       setPost(data);
     } catch (error) {
       console.log(error);
     }
   };
-
-
-  const deletePost = async () => {
-   
-    try {
-      const response = await blogFetch.delete(`/Livro/${id}`);
-          navigate("/");
-      
-    } catch (error) {
-      console.log(error);
-    }
-
-  };
-
 
   useEffect(() => {
     getPost();
@@ -42,23 +27,15 @@ const Produto = () => {
       {!post.nome ? (
         <p>Carregando...</p>
       ) : (
-        <div className={styles.livro}>
-          <img src={`../../public/${post.capa}`} alt={post.nome} className={styles.img}/>
-          <h2 className={styles.nome}>{post.nome}</h2>
-          <h3 className={styles.autor}>{post.autor_a}</h3>
-          <hr />
+        <div>
+          <h2>{post.nome}</h2>
+          <h3>{post.autor_a}</h3>
           <p>País: {post.pais}</p>
           <p>Lançamento: {post.lancamento}</p>
           <p>Editora: {post.editora}</p>
           <p>Gênero: {post.genero}</p>
           <p> Total de páginas: {post.total_de_paginas}</p>
-          <hr />
           <h4>{post.valor}</h4>
-          <Link to={`/produto/editar/${post.id}`}>  
-            <button className={styles.editar}>Editar</button>
-          </Link>  
-         
-         <input type="submit" onSubmit={deletePost()} className={styles.adicionar} value="Excluir"/>
         </div>
       )}
     </div>
