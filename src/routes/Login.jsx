@@ -38,6 +38,7 @@ function Login() {
                 className={styles.input}
                 type="email"
                 value={email}
+                placeholder="digite seu email"
                 onChange={(e) => setEmail(e.target.value)}
               />
               <span className={styles.focusinput} data-placeholder="Email"></span>
@@ -48,6 +49,7 @@ function Login() {
                 className={styles.input}
                 type="password"
                 value={password}
+                placeholder="digite sua senha"
                 onChange={(e) => setPassword(e.target.value)}
               />
               <span className={styles.focusinput} data-placeholder="Password"></span>

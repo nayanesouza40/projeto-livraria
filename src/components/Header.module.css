@@ -52,6 +52,7 @@
   .listaItens {
     color: #b3b3b3;
     list-style: none;
+    margin-right:20px;
   }
   
   .listaItens a {
@@ -81,14 +82,7 @@
     transition: 0.3s ease-in-out;
   }
   
-  .listaItens li:hover a,
-  .listaItens li:hover .loginIcone {
-    background: -webkit-linear-gradient(360deg, #77a6a1, #a6695b,#77a6a1);
-    -webkit-text-fill-color: transparent;
-    background-size: 300%;
-    animation: backColor 5s linear infinite;
-  }
-  
+ 
   .listaItens li:hover .loginIcone {
     color: #77a6a1;
     scale: 1.03;

@@ -19,7 +19,7 @@ const NovoProduto = () => {
     e.preventDefault();
     const post = { nome, autor_a, pais, lancamento, editora, genero, total_de_paginas, valor ,capa};
     await blogFetch.post("/Livro", post);
-    navigate("/");
+    navigate("/catalogo");
   };
 
   return (

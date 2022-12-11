@@ -46,7 +46,7 @@ const EditarProduto = () => {
 
     await blogFetch.put(`/Livro/${id}`, post);
 
-    navigate("/");
+    navigate("/catalogo");
   };
 
     
