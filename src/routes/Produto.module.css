@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.livro {
+    margin: auto;
+    width: 800px;
+    padding: 50px;
+    background-color: rgb(217, 187, 132);
+    box-shadow: 0 0 5px 0 black;
+    border-radius: 10px;
+    border: 5px double rgb(217, 151, 113);
+}
+.img {
+    width: auto;
+    height: 200px;
+    background-color: yellow;
+}
+.nome {
+    margin: 10px 0;
+}
+hr {
+    margin: 10px 0;
+    height: 2px;
+    border-width: 0;
+    color: rgb(217, 151, 113);
+    background-color: rgb(217, 151, 113);
+}
+.editar, .adicionar {
+    margin: 10px 10px 0 0;
+    padding: 10px;
+    color: white;
+    background-color: rgb(166, 105, 91);
+    border: 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
